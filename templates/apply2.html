@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Application - Academic info</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black" style="height: 80px;">
+    <div class="container-fluid d-flex align-items-center">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Tnea.png" alt="Logo" height="60" class="mr-3">
+      <a class="navbar-brand fs-3 fw-bold text-center mx-auto">Engineering Seat Allocation 2024</a>
+      <img src="https://www.nicepng.com/png/detail/944-9441929_anna-university-logo-png.png" alt="Logo" height="60"
+        class="mr-3">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item me-lg-5">
+            <a class="nav-link" href="home">Home</a>
+          </li>
+          <li class="nav-item me-lg-5">
+            <a class="nav-link" href="/about">About Us</a>
+          </li>
+          <li class="nav-item me-lg-5">
+            <a class="nav-link" href="/choice">Choice filling</a>
+          </li>
+          <li class="nav-item me-lg-5">
+            <a class="nav-link" href="/faqs">FAQs</a>
+          </li>
+          <li class="nav-item me-lg-5">
+            <a class="nav-link" href="/contact">Contact Us</a>
+          </li>
+          <li class="nav-item me-lg-5">
+            <a class="nav-link" href="/signout/">Sign Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <h2 class="text-center my-4"> Application form </h2>
+
+  <form method="post" action="/success" class="needs-validation" novalidate>
+    {% csrf_token %}
+    <div class="container mb-3 my-4">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <!-- <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Personal details</button> -->
+          <a class="nav-link" href="/apply">Personal details</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <!-- <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Academic info</button> -->
+          <a class="nav-link active" href="/apply2">Academic info</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+          tabindex="0"></div>
+        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+        </div>
+      </div>
+      <!-- spacing below the div elements -->
+      <style>
+        .tab-pane {
+          margin-bottom: 20px;
+        }
+      </style>
+
+      <label class="form-label" style="font-size: 20px; margin-top: 10px; font-weight: bold;">Academic details:</label>
+      <!-- name -->
+      <div class="mb-3">
+        <label for="validationCustom01" class="form-label">Candidate name</label>
+        <input type="text" class="form-control" placeholder="Name" name="name" required>
+        <div class="form-text" id="basic-addon4">As in 10th/HSC mark sheet</div>
+        <div class="invalid-feedback">
+          Please enter your name.
+        </div>
+      </div>
+      <!-- dob -->
+      <div class="mb-3">
+        <label for="validationCustom04" class="form-label">Date of birth</label>
+        <input type="date" class="form-control" placeholder="DD/MM/YYYY" name="dob" required>
+        <div class="invalid-feedback">
+          Please provide a valid date.
+        </div>
+      </div>
+      <!-- school name -->
+      <div class="mb-3">
+
+        <label class="form-label" style="margin-top: 15px; font-weight: bold;">School of study:</label>
+        <style>
+          .input-group {
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .input-group-text {
+            flex: 1;
+            text-align: center;
+          }
+        </style>
+        <div class="input-group">
+          <span class="input-group-text">Class</span>
+          <span class="input-group-text">Year passed</span>
+          <span class="input-group-text">State</span>
+          <span class="input-group-text">District</span>
+          <span class="input-group-text">Name of School</span>
+          <span class="input-group-text">Marks secured</span>
+        </div>
+        <div class="input-group">
+          <span class="input-group-text">10th</span>
+          <input type="text" aria-label="First name" class="form-control">
+          <input type="text" aria-label="Last name" class="form-control">
+          <input type="text" aria-label="First name" class="form-control">
+          <input type="text" aria-label="Last name" class="form-control">
+          <input type="text" aria-label="Last name" class="form-control">
+
+        </div>
+        <div class="input-group">
+          <span class="input-group-text">12th</span>
+          <input type="text" aria-label="First name" class="form-control">
+          <input type="text" aria-label="Last name" class="form-control">
+          <input type="text" aria-label="Last name" class="form-control">
+          <input type="text" aria-label="Last name" class="form-control">
+          <input type="text" aria-label="Last name" name="total_12th" class="form-control">
+        </div>
+      </div>
+      <!-- marks -->
+      <label class="form-label" style="margin-top: 16px; font-weight: bold;">Marks secured in 12th:</label>
+      <style>
+        .input-group {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .input-group-text {
+          flex: 1;
+          text-align: center;
+        }
+      </style>
+      <div class="input-group">
+        <span class="input-group-text">Subject</span>
+        <span class="input-group-text">Marks secured</span>
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">Maths</span>
+        <input type="text" aria-label="First name" name="maths" class="form-control">
+
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">Physics</span>
+        <input type="text" aria-label="First name" name="physics" class="form-control">
+      </div>
+      <div class="input-group">
+        <span class="input-group-text">Chemistry</span>
+        <input type="text" aria-label="First name" name="chemistry" class="form-control">
+      </div>
+    </div>
+    <!-- cutoff -->
+    <div class="container mb-3">
+      <label class="form-label" style="margin-top: 16px; font-weight: bold;">Cutoff:</label>
+      <input type="text" class="form-control" placeholder="Cutoff" id="validationCustom03" name="cutoff" required>
+      <div class="form-text" id="basic-addon4">Cutoff may be calculated by using the formula, Cutoff = Math + (Physics +
+        Chemistry)/2</div>
+      <div class="invalid-feedback">
+        Please provide a valid email id.
+      </div>
+    </div>
+    <!-- spl reservation -->
+    <div class=" container mb-3">
+      <div>
+        <label class="form-label" style="margin-top: 16px; font-weight: bold;">Special reservation:</label>
+      </div>
+      <label for="validationCustom04" class="form-label">Are you a candidate under quota for Eminent Sports
+        person?</label>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" id="validationFormCheck1" name="sports" required>
+        <label class="form-check-label" for="validationFormCheck1">Yes</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" id="validationFormCheck2" name="sports" required>
+        <label class="form-check-label" for="validationFormCheck2">No</label>
+      </div>
+      <div class="invalid-feedback">Please select an option</div>
+    </div>
+    <div class=" container mb-3">
+      <label for="validationCustom04" class="form-label">Ex-servicemen(Only Army/Navy/Air forces are eligible)</label>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" id="validationFormCheck1" name="service" required>
+        <label class="form-check-label" for="validationFormCheck1">Yes</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" id="validationFormCheck2" name="service" required>
+        <label class="form-check-label" for="validationFormCheck2">No</label>
+      </div>
+      <div class="invalid-feedback">Please select an option</div>
+    </div>
+    <div class=" container mb-3">
+      <label for="validationCustom04" class="form-label">Differently-abled person?</label>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" id="validationFormCheck1" name="diffable" required>
+        <label class="form-check-label" for="validationFormCheck1">Yes</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" id="validationFormCheck2" name="diffable" required>
+        <label class="form-check-label" for="validationFormCheck2">No</label>
+      </div>
+      <div class="invalid-feedback">Please select an option</div>
+    </div>
+    <!-- agree -->
+    <div class="container mb-3 my-4">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+        <label class="form-check-label" for="invalidCheck">
+          I hereby agree that all of the details entered above are correct to my knowledge.
+        </label>
+        <div class="invalid-feedback">
+          You must agree before submitting.
+        </div>
+      </div>
+    </div>
+    <!-- button -->
+    <div class="container mb-3 my-4">
+      <div class="row">
+        <div class="col-md-1">
+          <a href="/apply" class="btn btn-primary">Previous</a>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </form>
+
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (() => {
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      const forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+  integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>

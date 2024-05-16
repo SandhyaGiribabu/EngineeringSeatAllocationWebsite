@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Application - Personal details</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black" style="height: 80px;">
+    <div class="container-fluid d-flex align-items-center">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Tnea.png" alt="Logo" height="60" class="mr-3">
+      <a class="navbar-brand fs-3 fw-bold text-center mx-auto">Engineering Seat Allocation 2024</a>
+      <img src="https://www.nicepng.com/png/detail/944-9441929_anna-university-logo-png.png" alt="Logo" height="60"
+        class="mr-3">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item me-lg-5">
+            <a class="nav-link" href="home">Home</a>
+          </li>
+          <li class="nav-item me-lg-5">
+            <a class="nav-link" href="/about">About Us</a>
+          </li>
+          <li class="nav-item me-lg-5">
+            <a class="nav-link" href="/choice">Choice filling</a>
+          </li>
+          <li class="nav-item me-lg-5">
+            <a class="nav-link" href="/faqs">FAQs</a>
+          </li>
+          <li class="nav-item me-lg-5">
+            <a class="nav-link" href="/contact">Contact Us</a>
+          </li>
+          <li class="nav-item me-lg-5">
+            <a class="nav-link" href="/signout/">Sign Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <h2 class="text-center my-4"> Application form </h2>
+
+  <form method="post" action="/apply2" class="needs-validation" novalidate>
+    {% csrf_token %}
+    <div class="container mb-3 my-4">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <!-- <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Personal details</button> -->
+          <a class="nav-link active" href="/apply">Personal details</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <!-- <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Academic info</button> -->
+          <a class="nav-link" href="/apply2">Academic info</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+          tabindex="0"> </div>
+        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+        </div>
+      </div>
+      <!-- spacing below the div elements -->
+      <style>
+        .tab-pane {
+          margin-bottom: 20px;
+        }
+      </style>
+
+      <label class="form-label" style="font-size: 20px; margin-top: 10px; font-weight: bold;">Candidate info:</label>
+      <!-- name -->
+      <div class="mb-3">
+        <label for="validationCustom01" class="form-label">Username</label>
+        <input type="text" class="form-control" placeholder="Username" name="name" required>
+        <div class="invalid-feedback">
+          Please enter your username.
+        </div>
+      </div>
+      <!-- gender -->
+      <label for="validationCustom04" class="form-label">Gender</label>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" id="validationFormCheck1" name="radio-stacked" required>
+        <label class="form-check-label" for="validationFormCheck1">Male</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+        <label class="form-check-label" for="validationFormCheck2">Female</label>
+      </div>
+      <div class="form-check mb-3">
+        <input type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" required>
+        <label class="form-check-label" for="validationFormCheck3">Other</label>
+      </div>
+      <div class="invalid-feedback">Please select gender</div>
+      <!-- nationality -->
+      <div class="mb-3">
+        <label for="validationCustom04" class="form-label">Nationality</label>
+        <select class="form-select" id="validationCustom04" required>
+          <option selected disabled value="">Select nationality</option>
+          <option value="1">Indian</option>
+          <option value="2">NRI</option>
+        </select>
+        <div class="invalid-feedback">Please select nationality</div>
+      </div>
+      <!-- category -->
+      <div class="mb-3">
+        <label for="validationCustom04" class="form-label">Category</label>
+        <select class="form-select" name="category" required>
+          <option selected disabled value="">Select category</option>
+          <option value="1">General</option>
+          <option value="2">OBC</option>
+          <option value="3">SC</option>
+          <option value="4">ST</option>
+          <option value="5">PwD</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select category.
+        </div>
+      </div>
+      <!-- parent name -->
+      <div class="mb-3">
+        <label for="validationCustom01" class="form-label">Parent/Guardian name</label>
+        <input type="text" class="form-control" placeholder="Name" name="parentname1" required>
+        <div class="invalid-feedback">
+          Please enter parent/guardian name.
+        </div>
+      </div>
+      <!-- address -->
+      <label class="form-label" style="font-size: 20px; margin-top: 10px; font-weight: bold;">Address:</label>
+      <div class="row g-3">
+        <div class="col-md-3">
+          <label for="validationCustom01" class="form-label">Door no./Flat no.</label>
+          <input type="text" class="form-control" name="address" placeholder="Door no." required>
+          <div class="invalid-feedback">
+            Please enter Door.no
+          </div>
+        </div>
+        <div class="col-md-5">
+          <label for="validationCustom02" class="form-label">Road/Street</label>
+          <input type="text" class="form-control" id="validationCustom02" placeholder="Street name" required>
+          <div class="invalid-feedback">
+            Please enter Street name.
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">Town/Municipality</label>
+          <input type="text" class="form-control" id="validationCustom02" placeholder="Town name" required>
+          <div class="invalid-feedback">
+            Please enter Town name.
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom03" class="form-label">City</label>
+          <input type="text" class="form-control" id="validationCustom03" placeholder="City name" required>
+          <div class="invalid-feedback">
+            Please provide a valid city.
+          </div>
+        </div>
+        <div class="col-md-5">
+          <label for="validationCustom03" class="form-label">State</label>
+          <input type="text" class="form-control" id="validationCustom03" placeholder="State name" required>
+          <div class="invalid-feedback">
+            Please provide a valid state.
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label for="validationCustom05" class="form-label">PIN code</label>
+          <input type="text" class="form-control" id="validationCustom05" placeholder="PIN code" required>
+          <div class="invalid-feedback">
+            Please provide a valid PIN code.
+          </div>
+        </div>
+      </div>
+      <!-- contact -->
+      <label class="form-label" style="font-size: 20px; margin-top: 26px; font-weight: bold;">Contact info:</label>
+      <!-- phone -->
+      <div class="mb-3">
+        <label for="validationCustom02" class="form-label">Mobile number</label>
+        <div class="input-group has-validation">
+          <span class="input-group-text" id="inputGroupPrepend">+91 </span>
+          <input type="tel" class="form-control" placeholder="10-digit mobile number" name="phone"
+            aria-describedby="inputGroupPrepend" required>
+          <div class="invalid-feedback">
+            Please enter mobile number.
+          </div>
+        </div>
+      </div>
+      <!-- mail -->
+      <div class="mb-3">
+        <label for="validationCustom03" class="form-label">Email address</label>
+        <input type="text" class="form-control" placeholder="example@gmail.com" name="email" required>
+        <div class="invalid-feedback">
+          Please provide a valid email id.
+        </div>
+      </div>
+      <!-- aadhar -->
+      <div class="mb-3">
+        <label for="validationCustom03" class="form-label">Aadhar number</label>
+        <input type="text" class="form-control" placeholder="Enter Aadhar number" name="aadhar" required>
+        <div class="invalid-feedback">
+          Please enter Aadhar number.
+        </div>
+      </div>
+      <!-- agree -->
+      <div class="mb-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+          <label class="form-check-label" for="invalidCheck">
+            I hereby agree that all of the details entered above are correct to my knowledge.
+          </label>
+          <div class="invalid-feedback">
+            You must agree before submitting.
+          </div>
+        </div>
+      </div>
+      <!-- button -->
+      <div class="container mb-3 my-4">
+        <div class="row">
+          <div class="col-md-1">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+          <div class="col-md-2">
+            <a href="/apply2" class="btn btn-primary">Next</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (() => {
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      const forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+  integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
